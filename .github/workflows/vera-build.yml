@@ -54,10 +54,8 @@ jobs:
         VERACODE_API_KEY_ID: '${{ secrets.VERACODE_API_ID }}'
         VERACODE_API_KEY_SECRET: '${{ secrets.VERACODE_API_KEY }}'
       run: |
-        curl -fsS https://tools.veracode.com/veracode-cli/install | sh
-        pwd
-        ls -lart
-        veracode package --source source-code --output veracode-artifacts --trust
+        cd source_code
+        mvn package -B app/pom.xml
 
     - uses: actions/upload-artifact@v4
       with:
