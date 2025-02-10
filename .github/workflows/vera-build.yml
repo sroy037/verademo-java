@@ -54,9 +54,9 @@ jobs:
         VERACODE_API_KEY_ID: '${{ secrets.VERACODE_API_ID }}'
         VERACODE_API_KEY_SECRET: '${{ secrets.VERACODE_API_KEY }}'
       run: |
-        cd source-code
+        cd source-code/app
         ls -lart
-        mvn package -B app/pom.xml
+        mvn package -B pom.xml
 
     - uses: actions/upload-artifact@v4
       with:
