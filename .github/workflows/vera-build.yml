@@ -54,6 +54,7 @@ jobs:
         VERACODE_API_KEY_ID: '${{ secrets.VERACODE_API_ID }}'
         VERACODE_API_KEY_SECRET: '${{ secrets.VERACODE_API_KEY }}'
       run: |
+        ls -al
         cd source_code
         mvn package -B app/pom.xml
 
