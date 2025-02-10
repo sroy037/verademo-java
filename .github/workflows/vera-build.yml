@@ -50,16 +50,12 @@ jobs:
         
     - name: Package the appliccation
       id: application_package
-      env:
-        VERACODE_API_KEY_ID: '${{ secrets.VERACODE_API_ID }}'
-        VERACODE_API_KEY_SECRET: '${{ secrets.VERACODE_API_KEY }}'
       run: |
         cd source-code/app
-        ls -lrt
-        mvn package -B pom.xml
+        mvn -B package --file pom.xml
 
     - uses: actions/upload-artifact@v4
       with:
         name: veracode-artifact
-        path: "app/target/*"
+        path: "source-code/app/target/*war"
         if-no-files-found: error
