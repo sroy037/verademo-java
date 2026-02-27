@@ -47,6 +47,12 @@ jobs:
         id: pipeline-scan
         uses: veracode/Veracode-pipeline-scan-action@v1.0.20
         with:
-          vid: ${{ secrets.VID }}
-          vkey: ${{ secrets.VKEY }}
-          file: "verademo.war" 
+          vid: ${{ secrets.VERACODE_API_ID }}
+          vkey: ${{ secrets.VERACODE_API_KEY }}
+          file: "verademo.war"
+          debug: 1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-results
+          path: ./*results*
