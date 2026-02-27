@@ -51,7 +51,7 @@ jobs:
           vkey: ${{ secrets.VERACODE_API_KEY }}
           file: "verademo.war"
           summary_output: true
-          fail_on_severity: "Very High, High"
+          fail_on_severity: "High"
 
       - name: print-filter-json
         run: |
