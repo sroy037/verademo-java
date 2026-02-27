@@ -56,9 +56,4 @@ jobs:
       - name: print-filter-json
         run: |
           ls -lrt *result*
-          cat filtered_results.json
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pipeline-results
-          path: ./*results*
+          cat filtered_results.json | grep 'issue_id' | wc -l
