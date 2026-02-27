@@ -43,7 +43,7 @@ jobs:
           name: verademo.war
 
       # run the pipeline scan action
-      - name: pipeline-scan action step
+      - name: pipeline-scan
         id: pipeline-scan
         uses: veracode/Veracode-pipeline-scan-action@v1.0.20
         with:
