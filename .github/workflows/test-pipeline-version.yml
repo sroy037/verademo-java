@@ -50,7 +50,13 @@ jobs:
           vid: ${{ secrets.VERACODE_API_ID }}
           vkey: ${{ secrets.VERACODE_API_KEY }}
           file: "verademo.war"
-          debug: 1
+          debug: true
+          summary_output: true
+
+      - name: print-filter-json
+        run: |
+          ls -lrt *result*
+          cat filtered_results.json
 
       - uses: actions/upload-artifact@v4
         with:
